@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booleans</title>
+  </head>
+  <style>
+    button {
+      padding: 5px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      background-color: transparent;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <h4>Trò chơi kéo búa bao</h4>
+    <button onclick="gameTick('Búa')">Búa</button>
+    <button onclick="gameTick('Bao')">Bao</button>
+    <button onclick="gameTick('Kéo')">Kéo</button>
+  </body>
+  <script>
+    function gameTick(playMove) {
+      if (playMove === "Búa") {
+        pickComputerMove();
+        let result = "";
+        if (computerResult === "Búa") {
+          result = "Huề";
+        } else if (computerResult === "Bao") {
+          result = "Thua";
+        } else if (computerResult === "Kéo") {
+          result = "Thắng";
+        }
+        alert(
+          `Bạn chọn ${playMove} . Computer chọn ${computerResult} . Bạn ${result}`
+        );
+      }
+
+      if (playMove === "Bao") {
+        pickComputerMove();
+        let result = "";
+        if (computerResult === "Búa") {
+          result = "Thắng";
+        } else if (computerResult === "Bao") {
+          result = "Huề";
+        } else if (computerResult === "Kéo") {
+          result = "Thua";
+        }
+        alert(
+          `Bạn chọn ${playMove} . Computer chọn ${computerResult} . Bạn ${result}`
+        );
+      }
+
+      if (playMove === "Kéo") {
+        pickComputerMove();
+        let result = "";
+        if (computerResult === "Búa") {
+          result = "Thua";
+        } else if (computerResult === "Bao") {
+          result = "Thắng";
+        } else if (computerResult === "Kéo") {
+          result = "Huề";
+        }
+        alert(
+          `Bạn chọn ${playMove} . Computer chọn ${computerResult} . Bạn ${result}`
+        );
+      }
+    }
+
+    function pickComputerMove() {
+      let numberRandom = Math.random();
+      if (numberRandom >= 0 && numberRandom <= 1 / 3) {
+        computerResult = "Búa";
+      } else if (numberRandom >= 1 / 3 && numberRandom <= 2 / 3) {
+        computerResult = "Bao";
+      } else if (numberRandom > 2 / 3) {
+        computerResult = "Kéo";
+      }
+      return computerResult;
+    }
+  </script>
+</html>
